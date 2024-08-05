@@ -40,3 +40,6 @@ thread4.join()
 
 end_time_threads = datetime.now()
 print(f'Работа потоков: {end_time_threads - end_time_functions} секунд')
+
+
+
