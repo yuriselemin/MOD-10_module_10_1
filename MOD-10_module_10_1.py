@@ -25,7 +25,8 @@ print(f'Разница работы функций: {end_time_functions - start_
 
 start_time_threads = datetime.now()
 threads = []
-for count, file_name in [(10, 'variant5.txt'), (30, 'variant6.txt'), (200, 'variant7.txt'), (100, 'variant8.txt')]:
+for count, file_name in [(10, 'variant5.txt'), (30, 'variant6.txt'), 
+                         (200, 'variant7.txt'), (100, 'variant8.txt')]:
     t = Thread(target=write_words, args=(count, file_name))
     threads.append(t)
     t.start()
