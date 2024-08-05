@@ -23,20 +23,14 @@ print(f'Разница работы функций: {end_time_functions - start_
 
 start_time_threads = datetime.now()
 
-thread1 = Thread(target=write_words, args=(10, 'variant5.txt'))
-thread2 = Thread(target=write_words, args=(30, 'variant6.txt'))
-thread3 = Thread(target=write_words, args=(200, 'variant7.txt'))
-thread4 = Thread(target=write_words, args=(100, 'variant8.txt'))
+threads = []
+for count, file_name in [(10, 'variant5.txt'), (30, 'variant6.txt'), (200, 'variant7.txt'), (100, 'variant8.txt')]:
+    t = Thread(target=write_words, args=(count, file_name))
+    threads.append(t)
+    t.start()
 
-thread1.start()
-thread2.start()
-thread3.start()
-thread4.start()
-
-thread1.join()
-thread2.join()
-thread3.join()
-thread4.join()
+for t in threads:
+    t.join()
 
 end_time_threads = datetime.now()
 print(f'Разница работы потоков: {end_time_threads - start_time_threads} секунд')
