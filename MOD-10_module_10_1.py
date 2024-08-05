@@ -12,6 +12,7 @@ def write_words(word_count, file_name):
     print(f'Завершилась запись в файл {file_name} ')
 
 
+
 start_time_functions = datetime.now()
 write_words(10, 'variant1.txt')
 write_words(30, 'variant2.txt')
