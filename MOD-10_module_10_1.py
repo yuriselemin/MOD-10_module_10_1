@@ -36,3 +36,4 @@ end_time_threads = datetime.now()
 print(f'Разница работы потоков: {end_time_threads - start_time_threads} секунд')
 
 
+
