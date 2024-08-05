@@ -1,7 +1,8 @@
 
 
-from time import sleep
+
 from threading import Thread
+from time import sleep
 from datetime import datetime
 
 # Домашнее задание по теме "Создание потоков"
@@ -13,7 +14,7 @@ def write_words(word_count, file_name):
             sleep(0.1)
     print(f'Завершилась запись в файл {file_name} ')
 
-start_time =  datetime.now()
+start_time_functions = datetime.now()
 
 write_words(10, 'variant1.txt')
 write_words(30, 'variant2.txt')
@@ -21,7 +22,9 @@ write_words(200, 'variant3.txt')
 write_words(100, 'variant4.txt')
 
 end_time_functions = datetime.now()
-print(f'Работа потоков: {end_time_functions - start_time} секунд')
+print(f'Разница работы функций: {end_time_functions - start_time_functions} секунд')
+
+start_time_threads = datetime.now()
 
 thread1 = Thread(target=write_words, args=(10, 'variant5.txt'))
 thread2 = Thread(target=write_words, args=(30, 'variant6.txt'))
@@ -39,7 +42,6 @@ thread3.join()
 thread4.join()
 
 end_time_threads = datetime.now()
-print(f'Работа потоков: {end_time_threads - end_time_functions} секунд')
-
+print(f'Разница работы потоков: {end_time_threads - start_time_threads} секунд')
 
 
